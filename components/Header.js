@@ -1,10 +1,17 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import LogIn from "./LogIn";
-import HeaderLoggedIn from "./HeaderLoggedIn";
+import HeaderLogout from "./HeaderLogout";
+import HeaderLogin from "./HeaderLogin";
 
 function Header() {
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
+  console.log(loggedIn);
+
+  useEffect(() => {
+    if (Boolean(localStorage.getItem("draftToken"))) {
+      setLoggedIn(true);
+    }
+  });
   return (
     <header className="header-bar bg-dark mb-3">
       <div className="container d-flex flex-column flex-md-row align-items-center p-3">
@@ -13,9 +20,12 @@ function Header() {
             <a className="text-white">Draft Network</a>
           </Link>{" "}
         </h4>
-        
-        { loggedIn ? <HeaderLoggedIn setLoggedIn={setLoggedIn} /> : <LogIn setLoggedIn={setLoggedIn}  />  }
-        
+
+        {loggedIn ? (
+          <HeaderLogin setLoggedIn={setLoggedIn} />
+        ) : (
+          <HeaderLogout setLoggedIn={setLoggedIn} />
+        )}
       </div>
     </header>
   );

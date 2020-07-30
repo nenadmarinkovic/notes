@@ -1,6 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 
-function HeaderLoggedIn(props) {
+function HeaderLogin(props) {
+  function handleLogout() {
+    props.setLoggedIn(false)
+    localStorage.removeItem("draftToken")
+    localStorage.removeItem("draftAvatar")
+    localStorage.removeItem("draftUsername")
+  }
   return (
     <div>
       <div className="flex-row my-3 my-md-0">
@@ -14,16 +20,16 @@ function HeaderLoggedIn(props) {
         <a href="#" className="mr-2">
           <img
             className="small-header-avatar"
-            src="https://gravatar.com/avatar/b9408a09298632b5151200f3449434ef?s=128"
+             src={localStorage.getItem('draftAvatar')}
           />
         </a>
         <a className="btn btn-sm btn-success mr-2" href="/create-post">
           Create Post
         </a>
-        <button onClick={() => props.setLoggedIn(false)} className="btn btn-sm btn-secondary">Sign Out</button>
+        <button onClick={handleLogout} className="btn btn-sm btn-secondary">Sign Out</button>
       </div>
     </div>
   );
 }
 
-export default HeaderLoggedIn;
+export default HeaderLogin;
