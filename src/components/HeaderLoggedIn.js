@@ -4,9 +4,9 @@ import { Link } from "react-router-dom"
 function HeaderLoggedIn(props) {
   function handleLogout() {
     props.setLoggedIn(false)
-    localStorage.removeItem("complexappToken")
-    localStorage.removeItem("complexappUsername")
-    localStorage.removeItem("complexappAvatar")
+    localStorage.removeItem("draftToken")
+    localStorage.removeItem("draftUsername")
+    localStorage.removeItem("draftAvatar")
   }
 
   return (
@@ -19,7 +19,7 @@ function HeaderLoggedIn(props) {
         <span className="chat-count-badge text-white"> </span>
       </span>
       <a href="#" className="mr-2">
-        <img className="small-header-avatar" src={localStorage.getItem("complexappAvatar")} alt="Avatar" />
+        <img className="small-header-avatar" src={localStorage.getItem("draftAvatar")} alt="Avatar" />
       </a>
       <Link className="btn btn-sm btn-success mr-2" to="/create-post">
         Create Post

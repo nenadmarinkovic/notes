@@ -11,7 +11,7 @@ import Axios from "axios"
 Axios.defaults.baseURL = "http://localhost:7575"
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("complexappToken")))
+  const [loggedIn, setLoggedIn] = useState(Boolean(localStorage.getItem("draftToken")))
 
   return (
     <BrowserRouter>

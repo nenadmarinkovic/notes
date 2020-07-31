@@ -9,7 +9,7 @@ function CreatePost() {
   async function handleSubmit(e) {
     e.preventDefault()
     try {
-      await Axios.post("/create-post", { title, body, token: localStorage.getItem("complexappToken") })
+      await Axios.post("/create-post", { title, body, token: localStorage.getItem("draftToken") })
       console.log("New post was created.")
     } catch (e) {
       console.log("There was a problem.")

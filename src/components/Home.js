@@ -5,7 +5,7 @@ function Home() {
   return (
     <Page title="Your Feed">
       <h2 className="text-center">
-        Hello <strong>{localStorage.getItem("complexappUsername")}</strong>,
+        Hello <strong>{localStorage.getItem("draftUsername")}</strong>,
         your feed is empty.
       </h2>
       <p className="lead text-muted text-center">

@@ -1,11 +1,10 @@
 {
-  "name": "complex-app",
+  "name": "draft-network-server",
   "version": "1.0.0",
-  "description": "hey dude",
+  "description": "Draft Network Server",
   "main": "db.js",
   "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/mongodb/node-mongodb-native.git"
+    "type": "git"
   },
   "scripts": {
     "watch": "nodemon db",
