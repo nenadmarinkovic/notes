@@ -10,7 +10,6 @@ apiRouter.get("/", (req, res) => res.json("Hello, if you see this message that m
 
 // check token to log out front-end if expired
 apiRouter.post("/checkToken", userController.checkToken)
-
 apiRouter.post("/getHomeFeed", userController.apiMustBeLoggedIn, userController.apiGetHomeFeed)
 apiRouter.post("/register", userController.apiRegister)
 apiRouter.post("/login", userController.apiLogin)
@@ -19,7 +18,6 @@ apiRouter.post("/post/:id/edit", userController.apiMustBeLoggedIn, postControlle
 apiRouter.delete("/post/:id", userController.apiMustBeLoggedIn, postController.apiDelete)
 apiRouter.post("/create-post", userController.apiMustBeLoggedIn, postController.apiCreate)
 apiRouter.post("/search", postController.search)
-
 apiRouter.post("/doesUsernameExist", userController.doesUsernameExist)
 apiRouter.post("/doesEmailExist", userController.doesEmailExist)
 
