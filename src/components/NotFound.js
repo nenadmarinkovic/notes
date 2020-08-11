@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Page from "./Page";
 
-function NoPage() {
+function NotFound() {
   return (
     <div>
       <Page title="Not Found">
@@ -15,4 +15,4 @@ function NoPage() {
   );
 }
 
-export default NoPage;
+export default NotFound;

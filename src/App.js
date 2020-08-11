@@ -1,9 +1,7 @@
-import React, { useState, useReducer, useEffect } from "react";
-import ReactDOM from "react-dom";
+import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-// My Components
 import Header from "./components/Header";
 import HomeGuest from "./components/HomeGuest";
 import Home from "./components/Home";
@@ -15,14 +13,12 @@ import ViewSinglePost from "./components/ViewSinglePost";
 import FlashMessages from "./components/FlashMessages";
 import Profile from "./components/Profile";
 import EditPost from "./components/EditPost";
-
+import NotFound from "./components/NotFound";
 import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 
 import Axios from "axios";
 Axios.defaults.baseURL = "http://localhost:7575";
-
-
 
 function App() {
   const initialState = {
@@ -91,6 +87,9 @@ function App() {
             </Route>
             <Route path="/terms">
               <Terms />
+            </Route>
+            <Route>
+              <NotFound />
             </Route>
           </Switch>
           <Footer />

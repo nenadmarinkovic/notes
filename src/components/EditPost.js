@@ -1,14 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { useImmerReducer } from "use-immer";
 import Page from "./Page";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, withRouter } from "react-router-dom";
 import Axios from "axios";
 import LoadingDots from "./LoadingDots";
 import StateContext from "../StateContext";
 import DispatchContext from "../DispatchContext";
-import NoPage from "./NoPage";
+import NotFound from "./NotFound";
 
-function ViewSinglePost() {
+function EditPost(props) {
   const appState = useContext(StateContext);
   const appDispatch = useContext(DispatchContext);
 
@@ -94,6 +94,10 @@ function ViewSinglePost() {
         });
         if (response.data) {
           dispatch({ type: "fetchComplete", value: response.data });
+          if (appState.user.username !== response.data.author.username) {
+            appDispatch({type: "flashMessage", value: "You don't have a permission to do that."})
+            props.history.push("/")
+          }
         } else {
           dispatch({ type: "notFound" });
         }
@@ -136,7 +140,7 @@ function ViewSinglePost() {
   }, [state.sendCount]);
 
   if (state.notFound) {
-    return <NoPage />;
+    return <NotFound />;
   }
 
   if (state.isFetching)
@@ -211,4 +215,4 @@ function ViewSinglePost() {
   );
 }
 
-export default ViewSinglePost;
+export default withRouter(EditPost);
