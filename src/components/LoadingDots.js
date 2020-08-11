@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function LoadingDots() {
-    return (
-        <div className="dots-loading">
-            
-        </div>
-    )
+  return <div className="dots-loading"></div>;
 }
 
-export default LoadingDots
+export default LoadingDots;

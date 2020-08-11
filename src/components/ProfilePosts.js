@@ -9,12 +9,12 @@ function ProfilePosts() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const ourRequest = Axios.CancelToken.source()
+    const ourRequest = Axios.CancelToken.source();
     async function fetchPosts() {
-     
       try {
         const response = await Axios.get(
-          `http://localhost:7575/profile/${username}/posts`, {cancelToken: ourRequest.token}
+          `http://localhost:7575/profile/${username}/posts`,
+          { cancelToken: ourRequest.token }
         );
         setPosts(response.data);
         setIsLoading(false);
@@ -24,8 +24,8 @@ function ProfilePosts() {
     }
     fetchPosts();
     return () => {
-      ourRequest.cancel()
-    }
+      ourRequest.cancel();
+    };
   }, []);
 
   if (isLoading) {
