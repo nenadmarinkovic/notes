@@ -20,28 +20,30 @@ function Profile() {
   });
 
   useEffect(() => {
+    const ourRequest = Axios.CancelToken.source();
     async function fetchData() {
       try {
         const response = await Axios.post(
           `http://localhost:7575/profile/${username}`,
+          { CancelToken: ourRequest.token },
           {
             token: appState.user.token,
           }
         );
-        setProfileData(response.data)
+        setProfileData(response.data);
       } catch (e) {
         console.log("There was a problem");
       }
     }
     fetchData();
+    return () => {
+      ourRequest.cancel();
+    };
   }, []);
   return (
     <Page title="Profile Screen">
       <h2>
-        <img
-          className="avatar-small"
-          src={profileData.profileAvatar}
-        />{" "}
+        <img className="avatar-small" src={profileData.profileAvatar} />{" "}
         {profileData.profileUsername}
         <button className="btn btn-primary btn-sm ml-2">
           Follow <i className="fas fa-user-plus"></i>
@@ -60,7 +62,7 @@ function Profile() {
         </a>
       </div>
 
-     <ProfilePosts/>
+      <ProfilePosts />
     </Page>
   );
 }
