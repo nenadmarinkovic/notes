@@ -95,8 +95,11 @@ function EditPost(props) {
         if (response.data) {
           dispatch({ type: "fetchComplete", value: response.data });
           if (appState.user.username !== response.data.author.username) {
-            appDispatch({type: "flashMessage", value: "You don't have a permission to do that."})
-            props.history.push("/")
+            appDispatch({
+              type: "flashMessage",
+              value: "You don't have a permission to do that.",
+            });
+            props.history.push("/");
           }
         } else {
           dispatch({ type: "notFound" });

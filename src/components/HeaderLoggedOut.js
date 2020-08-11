@@ -15,8 +15,7 @@ function HeaderLoggedOut() {
         password,
       });
       if (response.data) {
-     
-        appDispatch({type: "login", data: response.data});
+        appDispatch({ type: "login", data: response.data });
       } else {
         console.log("Incorrect username / password.");
       }

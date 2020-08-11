@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 import DispatchContext from "../DispatchContext";
 import StateContext from "../StateContext";
 
-
 function CreatePost(props) {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();

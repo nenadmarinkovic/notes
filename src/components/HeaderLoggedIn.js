@@ -1,14 +1,14 @@
-import React, {useContext} from "react"
-import StateContext from "../StateContext"
-import DispatchContext from "../DispatchContext"
-import { Link } from "react-router-dom"
+import React, { useContext } from "react";
+import StateContext from "../StateContext";
+import DispatchContext from "../DispatchContext";
+import { Link } from "react-router-dom";
 
 function HeaderLoggedIn() {
-const appDispatch = useContext(DispatchContext)
-const appState = useContext(StateContext)
+  const appDispatch = useContext(DispatchContext);
+  const appState = useContext(StateContext);
 
   function handleLogout() {
-    appDispatch({type: "logout"})
+    appDispatch({ type: "logout" });
   }
 
   return (
@@ -21,7 +21,11 @@ const appState = useContext(StateContext)
         <span className="chat-count-badge text-white"> </span>
       </span>
       <Link to={`/profile/${appState.user.username}`} className="mr-2">
-        <img className="small-header-avatar" src={appState.user.avatar} alt="Avatar" />
+        <img
+          className="small-header-avatar"
+          src={appState.user.avatar}
+          alt="Avatar"
+        />
       </Link>
       <Link className="btn btn-sm btn-success mr-2" to="/create-post">
         Create Post
@@ -30,7 +34,7 @@ const appState = useContext(StateContext)
         Sign Out
       </button>
     </div>
-  )
+  );
 }
 
-export default HeaderLoggedIn
+export default HeaderLoggedIn;
