@@ -54,7 +54,7 @@ function ViewSinglePost(props) {
 
   function isOwner() {
     if (appState.loggedIn) {
-      return appState.user.username == post.author.username;
+      return appState.user.username === post.author.username;
     }
     return false;
   }
@@ -68,7 +68,7 @@ function ViewSinglePost(props) {
         const response = await Axios.delete(`/post/${id}`, {
           data: { token: appState.user.token },
         });
-        if (response.data == "Success") {
+        if (response.data === "Success") {
           // 1. display a flash message
           appDispatch({
             type: "flashMessage",
@@ -114,7 +114,7 @@ function ViewSinglePost(props) {
 
       <p className="text-muted small mb-4">
         <Link to={`/profile/${post.author.username}`}>
-          <img className="avatar-tiny" src={post.author.avatar} />
+          <img className="avatar-tiny" src={post.author.avatar} alt="" />
         </Link>
         Posted by{" "}
         <Link to={`/profile/${post.author.username}`}>

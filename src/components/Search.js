@@ -58,7 +58,7 @@ function Search() {
   }, [state.requestCount])
 
   function searchKeyPressHandler(e) {
-    if (e.keyCode == 27) {
+    if (e.keyCode === 27) {
       appDispatch({ type: "closeSearch" })
     }
   }
@@ -86,8 +86,8 @@ function Search() {
 
       <div className="search-overlay-bottom">
         <div className="container container--narrow py-3">
-          <div className={"circle-loader " + (state.show == "loading" ? "circle-loader--visible" : "")}></div>
-          <div className={"live-search-results " + (state.show == "results" ? "live-search-results--visible" : "")}>
+          <div className={"circle-loader " + (state.show === "loading" ? "circle-loader--visible" : "")}></div>
+          <div className={"live-search-results " + (state.show === "results" ? "live-search-results--visible" : "")}>
             {Boolean(state.results.length) && (
               <div className="list-group shadow-sm">
                 <div className="list-group-item active">
@@ -99,7 +99,7 @@ function Search() {
 
                   return (
                     <Link onClick={() => appDispatch({ type: "closeSearch" })} key={post._id} to={`/post/${post._id}`} className="list-group-item list-group-item-action">
-                      <img className="avatar-tiny" src={post.author.avatar} /> <strong>{post.title}</strong>{" "}
+                      <img className="avatar-tiny" src={post.author.avatar} alt="" /> <strong>{post.title}</strong>{" "}
                       <span className="text-muted small">
                         by {post.author.username} on {dateFormatted}{" "}
                       </span>

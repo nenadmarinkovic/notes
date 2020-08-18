@@ -121,12 +121,12 @@ function Profile() {
   return (
     <Page title="Profile Screen">
       <h2>
-        <img className="avatar-small" src={state.profileData.profileAvatar} />{" "}
+        <img className="avatar-small" src={state.profileData.profileAvatar} alt="" />{" "}
         {state.profileData.profileUsername}
         {appState.loggedIn &&
           !state.profileData.isFollowing &&
-          appState.user.username != state.profileData.profileUsername &&
-          state.profileData.profileUsername != "..." && (
+          appState.user.username !== state.profileData.profileUsername &&
+          state.profileData.profileUsername !== "..." && (
             <button
               onClick={startFollowing}
               disabled={state.followActionLoading}
@@ -137,8 +137,8 @@ function Profile() {
           )}
         {appState.loggedIn &&
           state.profileData.isFollowing &&
-          appState.user.username != state.profileData.profileUsername &&
-          state.profileData.profileUsername != "..." && (
+          appState.user.username !== state.profileData.profileUsername &&
+          state.profileData.profileUsername !== "..." && (
             <button
               onClick={stopFollowing}
               disabled={state.followActionLoading}

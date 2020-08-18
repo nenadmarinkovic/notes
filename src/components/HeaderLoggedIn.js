@@ -21,7 +21,7 @@ function HeaderLoggedIn() {
         data-tip="Search"
         data-for="search"
         onClick={handleSearch}
-        href="#"
+        // href="#"
         className="text-white mr-2 header-search-icon"
       >
         <i className="fas fa-search"></i>
