@@ -23,12 +23,12 @@ Axios.defaults.baseURL = "http://localhost:8090";
 
 function App() {
   const initialState = {
-    loggedIn: Boolean(localStorage.getItem("complexappToken")),
+    loggedIn: Boolean(localStorage.getItem("Draft NetworkToken")),
     flashMessages: [],
     user: {
-      token: localStorage.getItem("complexappToken"),
-      username: localStorage.getItem("complexappUsername"),
-      avatar: localStorage.getItem("complexappAvatar"),
+      token: localStorage.getItem("Draft NetworkToken"),
+      username: localStorage.getItem("Draft NetworkUsername"),
+      avatar: localStorage.getItem("Draft NetworkAvatar"),
     },
     isSearchOpen: false,
   };
@@ -58,13 +58,13 @@ function App() {
 
   useEffect(() => {
     if (state.loggedIn) {
-      localStorage.setItem("complexappToken", state.user.token);
-      localStorage.setItem("complexappUsername", state.user.username);
-      localStorage.setItem("complexappAvatar", state.user.avatar);
+      localStorage.setItem("Draft NetworkToken", state.user.token);
+      localStorage.setItem("Draft NetworkUsername", state.user.username);
+      localStorage.setItem("Draft NetworkAvatar", state.user.avatar);
     } else {
-      localStorage.removeItem("complexappToken");
-      localStorage.removeItem("complexappUsername");
-      localStorage.removeItem("complexappAvatar");
+      localStorage.removeItem("Draft NetworkToken");
+      localStorage.removeItem("Draft NetworkUsername");
+      localStorage.removeItem("Draft NetworkAvatar");
     }
   }, [state.loggedIn]);
 

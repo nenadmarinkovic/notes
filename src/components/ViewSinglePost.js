@@ -50,7 +50,7 @@ function ViewSinglePost(props) {
 
   function isOwner() {
     if (appState.loggedIn) {
-      return appState.user.username == post.author.username
+      return appState.user.username === post.author.username
     }
     return false
   }
@@ -60,7 +60,7 @@ function ViewSinglePost(props) {
     if (areYouSure) {
       try {
         const response = await Axios.delete(`/post/${id}`, { data: { token: appState.user.token } })
-        if (response.data == "Success") {
+        if (response.data === "Success") {
           // 1. display a flash message
           appDispatch({ type: "flashMessage", value: "Post was successfully deleted." })
 
@@ -83,7 +83,7 @@ function ViewSinglePost(props) {
               <i className="fas fa-edit"></i>
             </Link>
             <ReactTooltip id="edit" className="custom-tooltip" />{" "}
-            <a onClick={deleteHandler} data-tip="Delete" data-for="delete" className="delete-post-button text-danger">
+            <a onClick={deleteHandler} data-tip="Delete" data-for="delete" className="delete-post-button text-danger" href="/">
               <i className="fas fa-trash"></i>
             </a>
             <ReactTooltip id="delete" className="custom-tooltip" />
@@ -93,7 +93,7 @@ function ViewSinglePost(props) {
 
       <p className="text-muted small mb-4">
         <Link to={`/profile/${post.author.username}`}>
-          <img className="avatar-tiny" src={post.author.avatar} />
+          <img className="avatar-tiny" src={post.author.avatar} alt="" />
         </Link>
         Posted by <Link to={`/profile/${post.author.username}`}>{post.author.username}</Link> on {dateFormatted}
       </p>
