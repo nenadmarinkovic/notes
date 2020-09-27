@@ -19,7 +19,7 @@ import DispatchContext from "./DispatchContext";
 
 import Axios from "axios";
 import Search from "./components/Search";
-Axios.defaults.baseURL = "http://localhost:7575";
+Axios.defaults.baseURL = "http://localhost:8090";
 
 function App() {
   const initialState = {
