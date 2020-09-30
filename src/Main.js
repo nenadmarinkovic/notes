@@ -1,7 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useState, useReducer, useEffect } from "react";
+import ReactDOM from "react-dom";
 import { useImmerReducer } from "use-immer";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
+import StateContext from "./StateContext";
+import DispatchContext from "./DispatchContext";
+
+// My Components
 import Header from "./components/Header";
 import HomeGuest from "./components/HomeGuest";
 import Home from "./components/Home";
@@ -14,23 +19,23 @@ import FlashMessages from "./components/FlashMessages";
 import Profile from "./components/Profile";
 import EditPost from "./components/EditPost";
 import NotFound from "./components/NotFound";
-import StateContext from "./StateContext";
-import DispatchContext from "./DispatchContext";
-
-import Axios from "axios";
 import Search from "./components/Search";
+import Chat from "./components/Chat";
+import Axios from "axios";
 Axios.defaults.baseURL = "http://localhost:8090";
 
-function App() {
+function Main() {
   const initialState = {
-    loggedIn: Boolean(localStorage.getItem("Draft NetworkToken")),
+    loggedIn: Boolean(localStorage.getItem("complexappToken")),
     flashMessages: [],
     user: {
-      token: localStorage.getItem("Draft NetworkToken"),
-      username: localStorage.getItem("Draft NetworkUsername"),
-      avatar: localStorage.getItem("Draft NetworkAvatar"),
+      token: localStorage.getItem("complexappToken"),
+      username: localStorage.getItem("complexappUsername"),
+      avatar: localStorage.getItem("complexappAvatar"),
     },
     isSearchOpen: false,
+    isChatOpen: false,
+    unreadChatCount: 0,
   };
 
   function ourReducer(draft, action) {
@@ -51,6 +56,18 @@ function App() {
       case "closeSearch":
         draft.isSearchOpen = false;
         return;
+      case "toggleChat":
+        draft.isChatOpen = !draft.isChatOpen;
+        return;
+      case "closeChat":
+        draft.isChatOpen = false;
+        return;
+      case "incrementUnreadChatCount":
+        draft.unreadChatCount++;
+        return;
+      case "clearUnreadChatCount":
+        draft.unreadChatCount = 0;
+        return;
     }
   }
 
@@ -58,13 +75,13 @@ function App() {
 
   useEffect(() => {
     if (state.loggedIn) {
-      localStorage.setItem("Draft NetworkToken", state.user.token);
-      localStorage.setItem("Draft NetworkUsername", state.user.username);
-      localStorage.setItem("Draft NetworkAvatar", state.user.avatar);
+      localStorage.setItem("complexappToken", state.user.token);
+      localStorage.setItem("complexappUsername", state.user.username);
+      localStorage.setItem("complexappAvatar", state.user.avatar);
     } else {
-      localStorage.removeItem("Draft NetworkToken");
-      localStorage.removeItem("Draft NetworkUsername");
-      localStorage.removeItem("Draft NetworkAvatar");
+      localStorage.removeItem("complexappToken");
+      localStorage.removeItem("complexappUsername");
+      localStorage.removeItem("complexappAvatar");
     }
   }, [state.loggedIn]);
 
@@ -108,7 +125,7 @@ function App() {
           >
             <Search />
           </CSSTransition>
-
+          <Chat />
           <Footer />
         </BrowserRouter>
       </DispatchContext.Provider>
@@ -116,4 +133,4 @@ function App() {
   );
 }
 
-export default App;
+export default Main;
