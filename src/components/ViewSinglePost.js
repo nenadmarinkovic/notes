@@ -56,6 +56,7 @@ function ViewSinglePost(props) {
   }
 
   async function deleteHandler() {
+    
     const areYouSure = window.confirm("Do you really want to delete this post?")
     if (areYouSure) {
       try {
