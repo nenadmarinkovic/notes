@@ -60,7 +60,7 @@ function HeaderLoggedIn(props) {
         <img className="small-header-avatar" src={appState.user.avatar} />
       </Link>
       <ReactTooltip place="bottom" id="profile" className="custom-tooltip" />{" "}
-      <Link className="btn btn-sm btn-success mr-2" to="/create-post">
+      <Link className="btn btn-sm btn-primary mr-2" to="/create-post">
         Create Post
       </Link>{" "}
       <button onClick={handleLogout} className="btn btn-sm btn-secondary">

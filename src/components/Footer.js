@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 function Footer() {
   return (
-    <footer className="border-top text-center small text-muted py-3">
+    <footer className="text-center small text-muted py-3" style={{height: "40px", marginTop: "-90px"}}>
       <p>
         <Link to="/" className="mx-1">
           Home

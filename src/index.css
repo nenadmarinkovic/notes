@@ -1,9 +1,18 @@
-body {
-  font-family: "Inter", sans-serif;
+html {
+  height: 100%;
 }
 
-.header-bar {
-  background-color: #292929;
+body {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #283A57;
+}
+
+.spacer {
+  flex: 1;
 }
 
 .container--narrow {
@@ -70,6 +79,7 @@ body {
   background-color: #444;
   border-color: transparent;
   color: #ffffff;
+  width: 140px;
 }
 
 .input-dark:focus {
@@ -95,12 +105,13 @@ body {
 
 @media (min-width: 768px) {
   .input-dark {
-    width: auto;
+    width: 160px;
   }
 }
 
 .display-3 {
   font-size: 4.2rem;
+  color: white;
 }
 
 @media (max-width: 1199px) {
@@ -201,7 +212,8 @@ textarea.tall-textarea {
 .search-overlay-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out,
+    0.33s transform ease-in-out;
 }
 
 .search-overlay-exit {
@@ -212,7 +224,8 @@ textarea.tall-textarea {
 .search-overlay-exit-active {
   opacity: 0;
   transform: scale(1.3);
-  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out, 0.33s transform ease-in-out;
+  transition: 0.33s visibility ease-in-out, 0.33s opacity ease-in-out,
+    0.33s transform ease-in-out;
 }
 
 .search-overlay-icon {
@@ -396,6 +409,15 @@ textarea.tall-textarea {
   border-radius: 12px;
   background-color: #007bff;
   color: #fff;
+}
+
+button {
+  background-color: #59a2d4 !important;
+  border: none !important;
+}
+
+.text-small {
+  color: #59a2d4;
 }
 
 .chat-other {
