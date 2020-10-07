@@ -25,7 +25,7 @@ const ViewSinglePost = React.lazy(() => import("./components/ViewSinglePost"));
 const Search = React.lazy(() => import("./components/Search"));
 const Chat = React.lazy(() => import("./components/Chat"));
 
-Axios.defaults.baseURL = "http://localhost:8090";
+Axios.defaults.baseURL = "https://draft-network.herokuapp.com/";
 
 function Main() {
   const initialState = {
