@@ -241,12 +241,9 @@ function HomeGuest() {
       <Page title="Welcome!" wide={true}>
         <div className="row align-items-center">
           <div className="col-lg-7 py-3 py-md-5">
-            <h1 className="display-3">Remember Writing?</h1>
+            <h1 className="display-3">See what your friends are sharing</h1>
             <p className="text-small">
-              Are you sick of short tweets and impersonal &ldquo;shared&rdquo;
-              posts that are reminiscent of the late 90&rsquo;s email forwards?
-              We believe getting back to actually writing is the key to enjoying
-              the internet again.
+            Draft Network is a community of people who share knowledge, ideas, and resources. Everyone is welcome to join. It's free, fun to use, and amazingly fast.
             </p>
           </div>
           <div className="col-lg-5 pl-lg-5 pb-3 py-lg-5">
@@ -349,7 +346,7 @@ function HomeGuest() {
       </Page>
 
       <svg
-      style={{marginTop: "-100px"}}
+        style={{ marginTop: "-100px" }}
         width="100%"
         height="457"
         viewBox="0 0 1595 457"

@@ -122,6 +122,7 @@ body {
 .display-3 {
   font-size: 4.2rem;
   color: white;
+  margin-bottom: 20px;
 }
 
 @media (max-width: 1199px) {
@@ -428,6 +429,7 @@ button {
 
 .text-small {
   color: #59a2d4;
+  line-height: 1.9;
 }
 
 .chat-other {
