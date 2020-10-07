@@ -8,7 +8,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #283A57;
+  background: #283a57;
 }
 
 .spacer {
@@ -76,15 +76,14 @@ body {
 }
 
 .input-dark {
-  background-color: #444;
+  color: #888;
+  background-color: white;
   border-color: transparent;
-  color: #ffffff;
   width: 140px;
 }
 
 .input-dark:focus {
-  color: #ffffff;
-  background-color: #555;
+  color: #000;
   border-color: #80bdff;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
@@ -106,7 +105,18 @@ body {
 @media (min-width: 768px) {
   .input-dark {
     width: 160px;
+    color: #888;
+    background-color: white;
   }
+}
+
+.mx-1 {
+  color: white;
+}
+
+.mx-1:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .display-3 {
@@ -530,14 +540,21 @@ button {
   border-radius: 16px;
 }
 
+small {
+  color: #59a2d4;
+}
+
 .custom-tooltip {
   padding: 8px 10px !important;
 }
 
-/* Dots Loading Animation */
 .dots-loading {
   margin: 0 auto;
   text-align: center;
+}
+
+.text-white {
+  text-decoration: none !important;
 }
 
 .dots-loading::before,
