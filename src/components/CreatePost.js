@@ -19,7 +19,6 @@ function CreatePost(props) {
         body,
         token: appState.user.token,
       });
-      // Redirect to new post url
       appDispatch({
         type: "flashMessage",
         value: "Congrats, you created a new post.",

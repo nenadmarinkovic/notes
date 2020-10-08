@@ -1,5 +1,7 @@
 html {
   height: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -8,6 +10,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 0px; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
 }
 
 .spacer {

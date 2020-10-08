@@ -15,10 +15,10 @@ function HeaderLoggedIn(props) {
     history.push("/");
   }
 
-  function handleSearchIcon(e) {
-    e.preventDefault();
-    appDispatch({ type: "openSearch" });
-  }
+  // function handleSearchIcon(e) {
+  //   e.preventDefault();
+  //   appDispatch({ type: "openSearch" });
+  // }
 
   return (
     <div className="flex-row my-3 my-md-0" style={{display: "flex", alignItems: "center"}}>
@@ -43,7 +43,7 @@ function HeaderLoggedIn(props) {
       >
        <span style={{marginRight: "10px"}} >Chat</span>
         {appState.unreadChatCount ? (
-          <span className="chat-count-badge text-white" style={{marginRight: "20px"}}>
+          <span className="chat-count-badge text-white">
             {appState.unreadChatCount < 10 ? appState.unreadChatCount : "9+"}
           </span>
         ) : (
