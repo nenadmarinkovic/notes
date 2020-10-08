@@ -8,11 +8,27 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: #283a57;
 }
 
 .spacer {
   flex: 1;
+}
+
+.btn-create {
+  background-color: #98d260;
+  color: white;
+  border-color: #98d260;
+}
+
+.btn-create:hover {
+  background-color: #98d260;
+  color: white;
+  border-color: #98d260;
+}
+
+.btn-create:active {
+  background-color: #98d260;
+  border-color: #98d260;
 }
 
 .container--narrow {
@@ -27,14 +43,14 @@ body {
 .header-chat-icon {
   cursor: pointer;
   position: relative;
-  top: 3px;
+  margin-right: 10px;
 }
 
 .chat-count-badge {
   text-align: center;
   position: absolute;
   top: 2px;
-  left: 0px;
+  left: 35px;
   width: 16px;
   font-size: 0.6rem;
   font-weight: bold;
@@ -111,11 +127,11 @@ body {
 }
 
 .mx-1 {
-  color: white;
+  color: #59a2d4;
 }
 
 .mx-1:hover {
-  color: white;
+  color: #59a2d4;
   text-decoration: none;
 }
 

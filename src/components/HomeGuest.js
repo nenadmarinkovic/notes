@@ -237,7 +237,7 @@ function HomeGuest() {
   }
 
   return (
-    <div style={{ minHeight: "calc(100vh - 100px)" }}>
+    <div style={{ minHeight: "calc(100vh - 60px)", background: "#283a57" }}>
       <Page title="Welcome!" wide={true}>
         <div className="row align-items-center">
           <div className="col-lg-7 py-3 py-md-5">
@@ -346,7 +346,7 @@ function HomeGuest() {
       </Page>
 
       <svg
-        style={{ marginTop: "-100px" }}
+        style={{ marginTop: "-80px" }}
         width="100%"
         height="457"
         viewBox="0 0 1595 457"

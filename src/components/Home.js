@@ -42,7 +42,7 @@ function Home() {
       {state.feed.length > 0 && (
         <>
           <h2 className="text-center mb-4">The Latest From Those You Follow</h2>
-          <div className="list-group">
+          <div className="list-group" style={{ minHeight: "calc(100vh - 200px)"}}>
             {state.feed.map(post => {
               return <Post post={post} key={post._id} />
             })}

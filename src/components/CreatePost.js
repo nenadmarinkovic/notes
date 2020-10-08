@@ -63,7 +63,7 @@ function CreatePost(props) {
           ></textarea>
         </div>
 
-        <button className="btn btn-primary">Save New Post</button>
+        <button className="btn btn-primary">Save New Draft</button>
       </form>
     </Page>
   );

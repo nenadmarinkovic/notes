@@ -33,7 +33,7 @@ function HeaderLoggedOut(props) {
           <input onChange={e => setPassword(e.target.value)} name="password" className="form-control form-control-sm input-dark" type="password" placeholder="Password" />
         </div>
         <div className="col-md-auto">
-          <button className="btn btn-primary btn-sm">Sign In</button>
+          <button className="btn btn-primary btn-sm">Log in</button>
         </div>
       </div>
     </form>
