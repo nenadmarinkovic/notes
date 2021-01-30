@@ -14,14 +14,14 @@ function ViewSinglePost(props) {
   const appDispatch = useContext(DispatchContext)
   const { id } = useParams()
   const [isLoading, setIsLoading] = useState(true)
-  const [post, setPost] = useState()
+  const [note, setPost] = useState()
 
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source()
 
     async function fetchPost() {
       try {
-        const response = await Axios.get(`/post/${id}`, { cancelToken: ourRequest.token })
+        const response = await Axios.get(`/note/${id}`, { cancelToken: ourRequest.token })
         setPost(response.data)
         setIsLoading(false)
       } catch (e) {
@@ -34,7 +34,7 @@ function ViewSinglePost(props) {
     }
   }, [id])
 
-  if (!isLoading && !post) {
+  if (!isLoading && !note) {
     return <NotFound />
   }
 
@@ -45,22 +45,22 @@ function ViewSinglePost(props) {
       </Page>
     )
 
-  const date = new Date(post.createdDate)
+  const date = new Date(note.createdDate)
   const dateFormatted = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
 
   function isOwner() {
     if (appState.loggedIn) {
-      return appState.user.username === post.author.username
+      return appState.user.username === note.author.username
     }
     return false
   }
 
   async function deleteHandler() {
     
-    const areYouSure = window.confirm("Do you really want to delete this post?")
+    const areYouSure = window.confirm("Do you really want to delete this note?")
     if (areYouSure) {
       try {
-        const response = await Axios.delete(`/post/${id}`, { data: { token: appState.user.token } })
+        const response = await Axios.delete(`/note/${id}`, { data: { token: appState.user.token } })
         if (response.data === "Success") {
           // 1. display a flash message
           appDispatch({ type: "flashMessage", value: "Post was successfully deleted." })
@@ -75,16 +75,16 @@ function ViewSinglePost(props) {
   }
 
   return (
-    <Page title={post.title}>
+    <Page title={note.title}>
       <div className="d-flex justify-content-between">
-        <h2>{post.title}</h2>
+        <h2>{note.title}</h2>
         {isOwner() && (
           <span className="pt-2">
-            <Link to={`/post/${post._id}/edit`} data-tip="Edit" data-for="edit" className="text-primary mr-2">
+            <Link to={`/note/${note._id}/edit`} data-tip="Edit" data-for="edit" className="text-primary mr-2">
               <i className="fas fa-edit"></i>
             </Link>
             <ReactTooltip id="edit" className="custom-tooltip" />{" "}
-            <a onClick={deleteHandler} data-tip="Delete" data-for="delete" className="delete-post-button text-danger" href="/">
+            <a onClick={deleteHandler} data-tip="Delete" data-for="delete" className="delete-note-button text-danger" href="/">
               <i className="fas fa-trash"></i>
             </a>
             <ReactTooltip id="delete" className="custom-tooltip" />
@@ -93,14 +93,14 @@ function ViewSinglePost(props) {
       </div>
 
       <p className="text-muted small mb-4">
-        <Link to={`/profile/${post.author.username}`}>
-          <img className="avatar-tiny" src={post.author.avatar} alt="" />
+        <Link to={`/profile/${note.author.username}`}>
+         
         </Link>
-        Posted by <Link to={`/profile/${post.author.username}`}>{post.author.username}</Link> on {dateFormatted}
+        Posted by <Link to={`/profile/${note.author.username}`}>{note.author.username}</Link> on {dateFormatted}
       </p>
 
       <div className="body-content">
-        <ReactMarkdown source={post.body} allowedTypes={["paragraph", "inlineCode", "blockquote", "code", "strong", "emphasis", "link", "text", "heading", "list", "listItem"]} />
+        <ReactMarkdown source={note.body} allowedTypes={["paragraph", "inlineCode", "blockquote", "code", "strong", "emphasis", "link", "text", "heading", "list", "listItem"]} />
       </div>
     </Page>
   )

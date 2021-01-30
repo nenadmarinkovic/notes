@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from "react";
 import DispatchContext from "../DispatchContext";
 import { useImmer } from "use-immer";
 import Axios from "axios";
-import Post from "./Post";
+import Post from "./Note";
 
 function Search() {
   const appDispatch = useContext(DispatchContext);
@@ -115,15 +115,15 @@ function Search() {
           >
             {Boolean(state.results.length) && (
               <div className="list-group shadow-sm">
-                <div className="list-group-item active">
+                <div className="no-border list-group-item active">
                   <strong>Search Results</strong> ({state.results.length}{" "}
                   {state.results.length > 1 ? "items" : "item"} found)
                 </div>
-                {state.results.map((post) => {
+                {state.results.map((note) => {
                   return (
                     <Post
-                      post={post}
-                      key={post._id}
+                      note={note}
+                      key={note._id}
                       onClick={() => appDispatch({ type: "closeSearch" })}
                     />
                   );

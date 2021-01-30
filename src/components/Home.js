@@ -4,7 +4,7 @@ import StateContext from "../StateContext"
 import { useImmer } from "use-immer"
 import LoadingDotsIcon from "./LoadingDotsIcon"
 import Axios from "axios"
-import Post from "./Post"
+import Note from "./Note"
 
 function Home() {
   const appState = useContext(StateContext)
@@ -41,10 +41,10 @@ function Home() {
     <Page title="Your Feed">
       {state.feed.length > 0 && (
         <>
-          <h2 className="text-center mb-4">The Latest From Those You Follow</h2>
+          <h2 className="lb-text text-center mb-4">The Latest From Those You Follow</h2>
           <div className="list-group" style={{ minHeight: "calc(100vh - 200px)"}}>
-            {state.feed.map(post => {
-              return <Post post={post} key={post._id} />
+            {state.feed.map(note => {
+              return <Note note={note} key={note._id} />
             })}
           </div>
         </>
@@ -54,7 +54,7 @@ function Home() {
           <h2 className="text-center">
             Hello <strong>{appState.user.username}</strong>, your feed is empty.
           </h2>
-          <p className="lead text-muted text-center">Your feed displays the latest posts from the people you follow. If you don&rsquo;t have any friends to follow that&rsquo;s okay; you can use the &ldquo;Search&rdquo; feature in the top menu bar to find content written by people with similar interests and then follow them.</p>
+          <p className="lead text-muted text-center">Your feed displays the latest notes from the people you follow. If you don&rsquo;t have any friends to follow that&rsquo;s okay! You can follow the Great Master and Almighty Founder of this network <a href="https://notes.cafe/profile/nenad">Nenad</a>.</p>
         </>
       )}
     </Page>

@@ -87,7 +87,7 @@ function EditPost(props) {
     const ourRequest = Axios.CancelToken.source();
     async function fetchPost() {
       try {
-        const response = await Axios.get(`/post/${state.id}`, {
+        const response = await Axios.get(`/note/${state.id}`, {
           cancelToken: ourRequest.token,
         });
         if (response.data) {
@@ -95,7 +95,7 @@ function EditPost(props) {
           if (appState.user.username !== response.data.author.username) {
             appDispatch({
               type: "flashMessage",
-              value: "You do not have permission to edit that post.",
+              value: "You do not have permission to edit that note.",
             });
 
             props.history.push("/");
@@ -120,7 +120,7 @@ function EditPost(props) {
       async function fetchPost() {
         try {
           const response = await Axios.post(
-            `/post/${state.id}/edit`,
+            `/note/${state.id}/edit`,
             {
               title: state.title.value,
               body: state.body.value,
@@ -155,13 +155,13 @@ function EditPost(props) {
 
   return (
     <Page title="Edit Post">
-      <Link className="small font-weight-bold" to={`/post/${state.id}`}>
-        &laquo; Back to post permalink
+      <Link className="small font-weight-bold" to={`/note/${state.id}`}>
+        &laquo; Back to note permalink
       </Link>
 
-      <form className="mt-3" onSubmit={submitHandler}>
+      <form className="mt-3" onSubmit={submitHandler} style={{paddingBottom: "80px"}}>
         <div className="form-group">
-          <label htmlFor="post-title" className="text-muted mb-1">
+          <label htmlFor="note-title" className="text-muted mb-1">
             <small>Title</small>
           </label>
           <input
@@ -174,7 +174,7 @@ function EditPost(props) {
             value={state.title.value}
             autoFocus
             name="title"
-            id="post-title"
+            id="note-title"
             className="form-control form-control-lg form-control-title"
             type="text"
             placeholder=""
@@ -188,7 +188,7 @@ function EditPost(props) {
         </div>
 
         <div className="form-group">
-          <label htmlFor="post-body" className="text-muted mb-1 d-block">
+          <label htmlFor="note-body" className="text-muted mb-1 d-block">
             <small>Body Content</small>
           </label>
           <textarea
@@ -199,7 +199,7 @@ function EditPost(props) {
               dispatch({ type: "bodyChange", value: e.target.value })
             }
             name="body"
-            id="post-body"
+            id="note-body"
             className="body-content tall-textarea form-control"
             type="text"
             value={state.body.value}

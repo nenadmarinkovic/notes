@@ -3,29 +3,29 @@ import Axios from "axios";
 import { useParams, Link } from "react-router-dom";
 import LoadingDotsIcon from "./LoadingDotsIcon";
 import StateContext from "../StateContext";
-import Post from "./Post";
+import Note from "./Note";
 
-function ProfilePosts(props) {
+function ProfileNotes(props) {
   const appState = useContext(StateContext);
   const { username } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
+  const [notes, setNotes] = useState([]);
 
   useEffect(() => {
     const ourRequest = Axios.CancelToken.source();
 
-    async function fetchPosts() {
+    async function fetchNotes() {
       try {
-        const response = await Axios.get(`/profile/${username}/posts`, {
+        const response = await Axios.get(`/profile/${username}/notes`, {
           cancelToken: ourRequest.token,
         });
-        setPosts(response.data);
+        setNotes(response.data);
         setIsLoading(false);
       } catch (e) {
         console.log("There was a problem.");
       }
     }
-    fetchPosts();
+    fetchNotes();
     return () => {
       ourRequest.cancel();
     };
@@ -35,23 +35,23 @@ function ProfilePosts(props) {
 
   return (
     <div className="list-group">
-      {posts.length > 0 &&
-        posts.map((post) => {
-          return <Post noAuthor={true} post={post} key={post._id} />;
+      {notes.length > 0 &&
+        notes.map((note) => {
+          return <Note noAuthor={true} note={note} key={note._id} />;
         })}
-      {posts.length === 0 && appState.user.username === username && (
+      {notes.length === 0 && appState.user.username === username && (
         <p className="lead text-muted text-center">
-          You haven&rsquo;t created any posts yet;{" "}
-          <Link to="/create-post">create one now!</Link>
+          You haven&rsquo;t created any notes yet;{" "}
+          <Link to="/create-note">create one now!</Link>
         </p>
       )}
-      {posts.length === 0 && appState.user.username !== username && (
+      {notes.length === 0 && appState.user.username !== username && (
         <p className="lead text-muted text-center">
-          {username} hasn&rsquo;t created any posts yet.
+          {username} hasn&rsquo;t created any notes yet.
         </p>
       )}
     </div>
   );
 }
 
-export default ProfilePosts;
+export default ProfileNotes;

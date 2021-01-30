@@ -3,7 +3,7 @@ import Page from "./Page";
 import { useParams, NavLink, Switch, Route } from "react-router-dom";
 import Axios from "axios";
 import StateContext from "../StateContext";
-import ProfilePosts from "./ProfilePosts";
+import ProfileNotes from "./ProfileNotes";
 import ProfileFollowers from "./ProfileFollowers";
 import ProfileFollowing from "./ProfileFollowing";
 import { useImmer } from "use-immer";
@@ -17,9 +17,9 @@ function Profile() {
     stopFollowingRequestCount: 0,
     profileData: {
       profileUsername: "...",
-      profileAvatar: "https://gravatar.com/avatar/placeholder?s=128",
+     
       isFollowing: false,
-      counts: { postCount: "", followerCount: "", followingCount: "" },
+      counts: { noteCount: "", followerCount: "", followingCount: "" },
     },
   });
 
@@ -124,7 +124,7 @@ function Profile() {
   return (
     <Page title="Profile Screen">
       <h2>
-        <img className="avatar-small" src={state.profileData.profileAvatar} alt="" />{" "}
+       
         {state.profileData.profileUsername}
         {appState.loggedIn &&
           !state.profileData.isFollowing &&
@@ -152,23 +152,23 @@ function Profile() {
           )}
       </h2>
 
-      <div className="profile-nav nav nav-tabs pt-2 mb-4">
+      <div className="no-border profile-nav nav nav-tabs pt-2 mb-4">
         <NavLink
           exact
           to={`/profile/${state.profileData.profileUsername}`}
-          className="nav-item nav-link"
+          className="no-border nav-item nav-link"
         >
-          Posts: {state.profileData.counts.postCount}
+          Notes: {state.profileData.counts.noteCount}
         </NavLink>
         <NavLink
           to={`/profile/${state.profileData.profileUsername}/followers`}
-          className="nav-item nav-link"
+          className="no-border nav-item nav-link"
         >
           Followers: {state.profileData.counts.followerCount}
         </NavLink>
         <NavLink
           to={`/profile/${state.profileData.profileUsername}/following`}
-          className="nav-item nav-link"
+          className="no-border nav-item nav-link"
         >
           Following: {state.profileData.counts.followingCount}
         </NavLink>
@@ -176,7 +176,7 @@ function Profile() {
 
       <Switch>
         <Route exact path="/profile/:username">
-          <ProfilePosts />
+          <ProfileNotes />
         </Route>
         <Route path="/profile/:username/followers">
           <ProfileFollowers />

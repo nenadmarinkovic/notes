@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Open Sans", sans-serif;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,18 @@ body {
 /* Optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
   background: #ff0000;
+}
+
+.nav-link {
+  padding-left: 0 !important;
+}
+
+.list-group-item {
+  padding-left: 0 !important;
+}
+
+.list-group {
+  min-height: 70vh !important;
 }
 
 .spacer {
@@ -90,10 +102,45 @@ body {
   font-weight: 500;
 }
 
+.padding-bottom {
+  min-height: 90vh !important;
+  /* margin-bottom: 80px !important; */
+}
+
+.header-bar {
+  height: 60px;
+}
+
+@media (max-width: 768px) {
+  .header-bar {
+    height: 100% !important
+  }
+}
+
+@media (max-width: 768px) {
+  h2 {
+   margin-top: 20px;
+  }
+}
+
+.lb-text {
+  text-align: start !important
+ }
+
+@media (max-width: 768px) {
+  .lb-text {
+   margin-top: 30px;
+  }
+}
+
+
+
 .body-content {
   font-size: 1.2rem;
   line-height: 1.75;
   color: #292929;
+  min-height: 70vh;
+  padding-bottom: 80px;
 }
 
 .body-content p,
@@ -106,7 +153,6 @@ body {
   color: #888;
   background-color: white;
   border-color: transparent;
-  width: 140px;
 }
 
 .input-dark:focus {
@@ -131,7 +177,7 @@ body {
 
 @media (min-width: 768px) {
   .input-dark {
-    width: 160px;
+    width: 100% !important;
     color: #888;
     background-color: white;
   }
@@ -159,8 +205,15 @@ body {
 }
 
 @media (max-width: 768px) {
+  form {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
   .display-3 {
     font-size: 2.5rem;
+   
   }
 }
 
@@ -221,7 +274,7 @@ textarea.tall-textarea {
   }
 }
 
-.delete-post-button {
+.delete-note-button {
   cursor: pointer;
   background: none;
   border: none;
@@ -306,8 +359,32 @@ textarea.tall-textarea {
   padding-bottom: 15px;
 }
 
+@media (min-width: 768px) {
+  .align-items-center {
+    align-items: flex-start !important;
+  }
+}
+
 .search-overlay-bottom {
   overflow: auto;
+}
+
+/* .form-login {
+  padding-top: 10px !important;
+} */
+
+/* p {
+  line-height: 1.9;
+  font-size: 16px;
+} */
+
+@media (max-width: 768px) {
+  .form-login {
+    padding-top: 20px !important;
+  }
+}
+.no-border {
+  border: none !important;
 }
 
 .close-live-search {
@@ -457,6 +534,17 @@ button {
 .text-small {
   color: #59a2d4;
   line-height: 1.9;
+  font-size: 20px;
+}
+
+.flex-header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.flex-text-logo {
+  margin-left: 7px;
+  font-size: 23px;
 }
 
 .chat-other {

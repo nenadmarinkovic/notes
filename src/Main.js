@@ -17,15 +17,15 @@ import About from "./components/About";
 import Terms from "./components/Terms";
 import FlashMessages from "./components/FlashMessages";
 import Profile from "./components/Profile";
-import EditPost from "./components/EditPost";
+import EditPost from "./components/EditNote";
 import NotFound from "./components/NotFound";
 
-const CreatePost = React.lazy(() => import("./components/CreatePost"));
-const ViewSinglePost = React.lazy(() => import("./components/ViewSinglePost"));
+const CreatePost = React.lazy(() => import("./components/CreateNote"));
+const ViewSinglePost = React.lazy(() => import("./components/ViewSingleNote"));
 const Search = React.lazy(() => import("./components/Search"));
 const Chat = React.lazy(() => import("./components/Chat"));
 
-Axios.defaults.baseURL = "https://draft-network.herokuapp.com/";
+Axios.defaults.baseURL = "https://notes-cafe.herokuapp.com/";
 
 function Main() {
   const initialState = {
@@ -94,7 +94,7 @@ function Main() {
       const ourRequest = Axios.CancelToken.source();
       async function fetchResults() {
         try {
-          const response = await Axios.post(
+          const response = await Axios.note(
             "/checkToken",
             { token: state.user.token },
             { cancelToken: ourRequest.token }
@@ -129,13 +129,13 @@ function Main() {
               <Route path="/" exact>
                 {state.loggedIn ? <Home /> : <HomeGuest />}
               </Route>
-              <Route path="/post/:id" exact>
+              <Route path="/note/:id" exact>
                 <ViewSinglePost />
               </Route>
-              <Route path="/post/:id/edit" exact>
+              <Route path="/note/:id/edit" exact>
                 <EditPost />
               </Route>
-              <Route path="/create-post">
+              <Route path="/create-note">
                 <CreatePost />
               </Route>
               <Route path="/about-us">

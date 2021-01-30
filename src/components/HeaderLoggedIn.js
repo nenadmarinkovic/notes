@@ -32,7 +32,7 @@ function HeaderLoggedIn(props) {
         <i className="fas fa-search"></i>
       </a>
       <ReactTooltip place="bottom" id="search" className="custom-tooltip" />{" "} */}
-      <span
+      {/* <span
         onClick={() => appDispatch({ type: "toggleChat" })}
         data-for="chat"
         data-tip="Chat"
@@ -40,8 +40,8 @@ function HeaderLoggedIn(props) {
           "mr-2 header-chat-icon " +
           (appState.unreadChatCount ? "text-danger" : "text-white")
         }
-      >
-       <span style={{marginRight: "10px"}} >Chat</span>
+      > */}
+       {/* <span style={{marginRight: "10px"}} >Chat</span>
         {appState.unreadChatCount ? (
           <span className="chat-count-badge text-white">
             {appState.unreadChatCount < 10 ? appState.unreadChatCount : "9+"}
@@ -50,7 +50,7 @@ function HeaderLoggedIn(props) {
           ""
         )}
        
-      </span>
+      </span> */}
       <ReactTooltip place="bottom" id="chat" className="custom-tooltip" />{" "}
       <Link
         data-for="profile"
@@ -61,8 +61,8 @@ function HeaderLoggedIn(props) {
         <span style={{textTransform: "capitalize", color: "white", marginRight: "10px"}}>Profile: {appState.user.username}</span>
       </Link>
       <ReactTooltip place="bottom" id="profile" className="custom-tooltip" />{" "}
-      <Link className="btn btn-sm btn-create mr-2" to="/create-post">
-        Create Draft
+      <Link className="btn btn-sm btn-create mr-2" to="/create-note">
+        Create Note
       </Link>{" "}
       <button onClick={handleLogout} className="btn btn-sm btn-secondary">
         Log out
