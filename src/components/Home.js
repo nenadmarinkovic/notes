@@ -63,13 +63,17 @@ function Home() {
           <h2 className="text-center">
             Hello <strong>{appState.user.username}</strong>, your feed is empty.
           </h2>
-          <p className="lead text-muted text-center" style={{fontSize: "17px", lineHeight: "1.8", marginTop: "30px"}}>
+          <p
+            className="lead text-muted text-center"
+            style={{ fontSize: "17px", lineHeight: "1.8", marginTop: "30px" }}
+          >
             Your feed displays the latest notes from the people you follow. If
             you don&rsquo;t have any friends to follow that&rsquo;s okay! You
             can follow the Great Master Mind of this network{" "}
-            <a href="https://notes.cafe/profile/nenad">Nenad</a>, Grand Comissar{" "}
+            <a href="https://notes.cafe/profile/nenad">Nenad</a>, Chairman of
+            the Central Committee{" "}
             <a href="https://notes.cafe/profile/lju">Ljuba</a>, or even Mighty
-            Chef <a href="https://notes.cafe/profile/aleks">Aleks</a>.
+            Commisar <a href="https://notes.cafe/profile/aleks">Aleks</a>.
           </p>
         </>
       )}
