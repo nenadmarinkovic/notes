@@ -17,7 +17,10 @@ function About() {
         There are no distractions, trolls, marketing campaigns, political
         propaganda, bots, not even your aunt. Just a group of friends who share
         ideas and interesting links. The creator of the project is{" "}
-        <a href="https://nenadmarinkovic.com">Nenad Marinković</a>.
+        <a href="https://nenadmarinkovic.com" target="_blank" rel="noreferrer">
+          Nenad Marinković
+        </a>
+        .
       </p>
       <p style={{ marginTop: "20px", lineHeight: "1.8" }}>
         You will be welcomed here! Ready to join?
