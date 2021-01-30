@@ -108,7 +108,7 @@ body {
 }
 
 .header-bar {
-  height: 60px;
+  height: 65px;
 }
 
 @media (max-width: 768px) {
@@ -539,7 +539,7 @@ button {
 
 .flex-header-logo {
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 .flex-text-logo {
