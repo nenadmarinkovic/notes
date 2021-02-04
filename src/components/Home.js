@@ -73,7 +73,7 @@ function Home() {
             <a href="https://notes.cafe/profile/nenad">Nenad</a>, Chairman of
             the Central Committee{" "}
             <a href="https://notes.cafe/profile/lju">Ljuba</a>, or even Mighty
-            Commisar <a href="https://notes.cafe/profile/aleks">Aleks</a>.
+            Commisar <a href="https://notes.cafe/profile/finapostmodernica">Aleks</a>.
           </p>
         </>
       )}
