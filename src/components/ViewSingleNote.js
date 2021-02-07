@@ -100,7 +100,7 @@ function ViewSinglePost(props) {
       </p>
 
       <div className="body-content">
-        <ReactMarkdown source={note.body} allowedTypes={["paragraph", "inlineCode", "blockquote", "code", "strong", "emphasis", "link", "text", "heading", "list", "listItem"]} />
+        <ReactMarkdown className="line-break" source={note.body} allowedTypes={["paragraph", "inlineCode", "blockquote", "code", "strong", "emphasis", "link", "text", "heading", "list", "listItem"]} />
       </div>
     </Page>
   )

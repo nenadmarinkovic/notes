@@ -542,6 +542,10 @@ button {
   align-items: baseline;
 }
 
+.line-break {
+  white-space: pre-wrap !important;
+}
+
 .flex-text-logo {
   margin-left: 7px;
   font-size: 23px;
